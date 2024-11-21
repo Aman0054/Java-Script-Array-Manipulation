@@ -1,0 +1,52 @@
+// Initialize the array
+let numbers = [5, 3, 8, 1, 2];
+
+// Function to add a number to the array
+function addNumber(array, number) {
+    array.push(number);
+    return array;
+}
+
+// Function to remove a number from the array
+function removeNumber(array, number) {
+    const index = array.indexOf(number);
+    if (index !== -1) {
+        array.splice(index, 1);
+    } else {
+        console.log(`Number ${number} not found in the array.`);
+    }
+    return array;
+}
+
+// Function to sort the numbers in ascending order
+function sortNumbers(array) {
+    return [...array].sort((a, b) => a - b); // Return a new sorted array
+}
+
+// Function to calculate the sum of the numbers
+function calculateSum(array) {
+    return array.reduce((sum, num) => sum + num, 0);
+}
+
+// Function to calculate the average of the numbers
+function calculateAverage(array) {
+    return array.length > 0 ? calculateSum(array) / array.length : 0;
+}
+
+// Main program demonstrating the functions
+console.log("Initial array:", numbers);
+
+numbers = addNumber(numbers, 4);
+console.log("After adding 4:", numbers);
+
+numbers = removeNumber(numbers, 3);
+console.log("After removing 3:", numbers);
+
+const sortedNumbers = sortNumbers(numbers);
+console.log("Sorted array:", sortedNumbers);
+
+const sum = calculateSum(numbers);
+console.log("Sum of numbers:", sum);
+
+const average = calculateAverage(numbers);
+console.log("Average of numbers:", average);
